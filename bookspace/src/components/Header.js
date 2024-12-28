@@ -9,20 +9,20 @@ const Header = ({ user, openModal, onLogout }) => {
   return (
     <header className="header">
       <div className="header-logo">
-        <img src="/logo.png" alt="Logo" className="logo" />
+        <img src="../img/logo.jpg" alt="Logo" className="logo" />
         <h1>Book Finder</h1>
       </div>
       <nav className="header-nav">
-        <button className="header-button" onClick={() => navigate('/')}>Главная</button>
-        <button className="header-button" onClick={() => navigate('/favorites')}>Избранное</button>
+        <div className="menu-item" onClick={() => navigate('/')}>Main</div>
+        <div className="menu-item" onClick={() => navigate('/favorites')}>Favorites</div>
       </nav>
       <div className="header-user">
         {user ? (
           <>
-            <button onClick={onLogout} className="btn-logout">Выйти</button>
+            <button onClick={onLogout} className="btn-logout">Log out</button>
           </>
         ) : (
-          <button onClick={openModal} className="btn-login">Войти</button>
+          <button onClick={openModal} className="btn-login">Sign in</button>
         )}
       </div>
     </header>

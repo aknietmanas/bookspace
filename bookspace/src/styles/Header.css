@@ -20,18 +20,17 @@
   gap: 10px;
 }
   
-.header-button {
-  background-color: #61dafb;
+.menu-item {
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  color: black;
+  color: aliceblue;
   font-size: 1rem;
 }
 
-.header-button:hover {
-  background-color: #21a1f1;
+.menu-item:hover {
+  background-color: #686868;
 }
 
   .header-logo img {
@@ -65,7 +64,7 @@
   .btn-login, .btn-logout {
     font-size: 1rem;
     padding: 8px 15px;
-    background: #007bff;
+    background: #0056b3;
     border: none;
     border-radius: 5px;
     color: white;
@@ -74,6 +73,6 @@
   }
   
   .btn-login:hover, .btn-logout:hover {
-    background: #0056b3;
+    background: #007bff;
   }
   

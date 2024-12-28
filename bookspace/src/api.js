@@ -7,9 +7,16 @@ export const registerUser = async (email, username, password) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, username, password }),
   });
-  if (!response.ok) {
-    throw new Error("Ошибка регистрации");
-  }
+  if (response.ok) {
+    const result = await response.json();
+    console.log('Пользователь успешно зарегистрирован:', result);
+    
+    alert('Регистрация прошла успешно! Пожалуйста, войдите в аккаунт.');
+} else {
+    const errorData = await response.json();
+    console.error('Ошибка регистрации:', errorData);
+    alert('Ошибка регистрации. Пожалуйста, попробуйте еще раз.');
+}
   return await response.json();
 };
 
