@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 50px;
   padding: 15px 30px;
   background: #343a40;
   color: white;
@@ -13,11 +14,13 @@
 .header-logo {
   display: flex;
   align-items: center;
+  color: #38393b;
 }
 
 .header-nav {
   display: flex;
   gap: 10px;
+  color: #38393b;
 }
   
 .menu-item {
@@ -25,17 +28,19 @@
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  color: aliceblue;
+  color: #38393b;
   font-size: 1rem;
 }
 
 .menu-item:hover {
-  background-color: #686868;
+  background-color: #cacaca;
 }
 
   .header-logo img {
-    height: 40px;
+    height: 50px;
     margin-right: 10px;
+    margin-left: 20px;
+    border-radius: 100%;
   }
   
   .header-logo h1 {
@@ -70,6 +75,7 @@
     color: white;
     cursor: pointer;
     transition: background 0.3s;
+    margin-right: 20px;
   }
   
   .btn-login:hover, .btn-logout:hover {

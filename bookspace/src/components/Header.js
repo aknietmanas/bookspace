@@ -1,21 +1,17 @@
 // ./components/Header.js
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import logo from "../img/logo.jpg";
 import "../styles/Header.css";
 
 const Header = ({ user, openModal, onLogout }) => {
-    const navigate = useNavigate();
-
   return (
     <header className="header">
       <div className="header-logo">
-        <img src="../img/logo.jpg" alt="Logo" className="logo" />
-        <h1>Book Finder</h1>
+        <img src={logo} alt="Logo" className="logo" />
+        <h1>BookSpace</h1>
       </div>
-      <nav className="header-nav">
-        <div className="menu-item" onClick={() => navigate('/')}>Main</div>
-        <div className="menu-item" onClick={() => navigate('/favorites')}>Favorites</div>
-      </nav>
+      <nav className="header-nav"></nav>
       <div className="header-user">
         {user ? (
           <>

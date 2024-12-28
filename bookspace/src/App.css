@@ -56,3 +56,37 @@ button:disabled {
   font-size: 0.9rem;
   margin-top: 5px;
 }
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.header a:hover {
+  color: #0056b3;
+}
+
+.app-main {
+  margin-top: 80px;
+}

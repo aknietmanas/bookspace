@@ -9,13 +9,13 @@ export const registerUser = async (email, username, password) => {
   });
   if (response.ok) {
     const result = await response.json();
-    console.log('Пользователь успешно зарегистрирован:', result);
+    console.log('The user has been successfully registered:', result);
     
-    alert('Регистрация прошла успешно! Пожалуйста, войдите в аккаунт.');
+    alert('Registration was successful! Please log in to your account.');
 } else {
     const errorData = await response.json();
-    console.error('Ошибка регистрации:', errorData);
-    alert('Ошибка регистрации. Пожалуйста, попробуйте еще раз.');
+    console.error('Registration error:', errorData);
+    alert('Registration error. Please try again.');
 }
   return await response.json();
 };
@@ -24,7 +24,7 @@ export const loginUser = async (username, password) => {
   const response = await fetch(`${API_URL}/users?username=${username}&password=${password}`);
   const data = await response.json();
   if (data.length === 0) {
-    throw new Error("Неправильный логин или пароль");
+    throw new Error("Incorrect username or password");
   }
   return data[0];
 };
@@ -44,7 +44,7 @@ export const addFavorite = async (userId, book) => {
     body: JSON.stringify({ userId, bookId: book.id, title: book.volumeInfo.title }),
   });
   if (!response.ok) {
-    throw new Error("Ошибка добавления в избранное");
+    throw new Error("Error adding to favorites");
   }
   return await response.json();
 };
@@ -52,7 +52,7 @@ export const addFavorite = async (userId, book) => {
 export const removeFavorite = async (favoriteId) => {
   const response = await fetch(`${API_URL}/favorites/${favoriteId}`, { method: "DELETE" });
   if (!response.ok) {
-    throw new Error("Ошибка удаления из избранного");
+    throw new Error("Deletion error from favorites");
   }
   return await response.json();
 };

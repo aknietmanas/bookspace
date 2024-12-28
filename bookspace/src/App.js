@@ -39,7 +39,7 @@ const App = () => {
 
   const toggleFavorite = async (book) => {
     if (!user) {
-      alert("Войдите, чтобы добавлять книги в избранное.");
+      alert("Log in to add books to your favorites.");
       return;
     }
 
@@ -54,8 +54,8 @@ const App = () => {
         setFavorites((prev) => [...prev, { bookId: book.id, ...newFavorite }]);
       }
     } catch (error) {
-      console.error("Ошибка при обновлении избранного:", error);
-      alert("Не удалось обновить избранное. Попробуйте позже.");
+      console.error("Error updating favorites:", error);
+      alert("Couldn't update favorites. Try again later.");
     }
   };
 
@@ -76,23 +76,23 @@ const App = () => {
       } else {
         const response = await registerUser(userInput.email, userInput.username, userInput.password);
         if (response.success) {
-          alert('Регистрация прошла успешно! Вы можете войти в систему.');
+          alert('Registration was successful! You can log in.');
           setIsLoginMode(true);
         } else {
-          setError(response.message || 'Ошибка регистрации');
+          setError(response.message || 'Registration error');
         }
       }
     } catch (err) {
-      setError(err.message || 'Ошибка при обработке запроса');
+      setError(err.message || 'Request processing error');
     }
   };
-
+  //<FilterPanel filters={filters} setFilters={setFilters} />
   return (
     <div className="app-container">
       <Header user={user} openModal={() => setIsModalOpen(true)} onLogout={() => setUser(null)} />
       <main className="app-main">
         <SearchBar onSearch={fetchBooks} />
-        <FilterPanel filters={filters} setFilters={setFilters} />
+        
         <BookList
           books={books}
           loading={loading}

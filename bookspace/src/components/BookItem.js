@@ -12,7 +12,7 @@ const BookItem = ({ book, onToggleFavorite, isFavorite }) => {
       <div className="book-details">
         <h3>{title}</h3>
         <p>{authors?.join(', ')}</p>
-        <button onClick={() => onToggleFavorite(book)}>
+        <button className='FavoriteButton' onClick={() => onToggleFavorite(book)}>
           {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
         </button>
       </div>
