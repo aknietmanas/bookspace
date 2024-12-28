@@ -1,18 +1,23 @@
-/* src/App.css */
+/* ./App.css */
 .app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #f4f4f9;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
   min-height: 100vh;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  color: #212529;
 }
 
-h1 {
-  color: #333;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.app-main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button {
@@ -23,6 +28,7 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
 button:hover {
@@ -30,6 +36,23 @@ button:hover {
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: #6c757d;
   cursor: not-allowed;
+}
+
+.link {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #0056b3;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }

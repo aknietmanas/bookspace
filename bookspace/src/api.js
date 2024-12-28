@@ -1,47 +1,51 @@
-// src/api.js
-const API_URL = 'https://67343524a042ab85d119355d.mockapi.io';
+//src/api.js
+const API_URL = "https://67343524a042ab85d119355d.mockapi.io";
 
-export const registerUser = async (userData) => {
+export const registerUser = async (email, username, password) => {
   const response = await fetch(`${API_URL}/users`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(userData),
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, username, password }),
   });
-  if (!response.ok) throw new Error('Registration failed');
-  return response.json();
+  if (!response.ok) {
+    throw new Error("Ошибка регистрации");
+  }
+  return await response.json();
 };
 
-export const loginUser = async (credentials) => {
-  const response = await fetch(`${API_URL}/users`);
-  if (!response.ok) throw new Error('Login failed');
-  const users = await response.json();
-  const user = users.find(
-    (u) => u.email === credentials.email && u.password === credentials.password
-  );
-  if (!user) throw new Error('Invalid email or password');
-  return user;
+export const loginUser = async (username, password) => {
+  const response = await fetch(`${API_URL}/users?username=${username}&password=${password}`);
+  const data = await response.json();
+  if (data.length === 0) {
+    throw new Error("Неправильный логин или пароль");
+  }
+  return data[0];
 };
 
 export const getFavorites = async (userId) => {
   const response = await fetch(`${API_URL}/favorites?userId=${userId}`);
-  if (!response.ok) throw new Error('Failed to fetch favorites');
-  return response.json();
+  if (!response.ok) {
+    throw new Error("Ошибка загрузки избранного");
+  }
+  return await response.json();
 };
 
 export const addFavorite = async (userId, book) => {
   const response = await fetch(`${API_URL}/favorites`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ userId, bookId: book.id, ...book }),
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userId, bookId: book.id, title: book.volumeInfo.title }),
   });
-  if (!response.ok) throw new Error('Failed to add favorite');
-  return response.json();
+  if (!response.ok) {
+    throw new Error("Ошибка добавления в избранное");
+  }
+  return await response.json();
 };
 
 export const removeFavorite = async (favoriteId) => {
-  const response = await fetch(`${API_URL}/favorites/${favoriteId}`, {
-    method: 'DELETE',
-  });
-  if (!response.ok) throw new Error('Failed to remove favorite');
-  return response.json();
+  const response = await fetch(`${API_URL}/favorites/${favoriteId}`, { method: "DELETE" });
+  if (!response.ok) {
+    throw new Error("Ошибка удаления из избранного");
+  }
+  return await response.json();
 };

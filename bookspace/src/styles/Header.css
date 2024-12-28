@@ -1,32 +1,60 @@
+/* ./styles/Header.css */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 30px;
+  background: #343a40;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
   
-  .header-logo {
-    display: flex;
-    align-items: center;
-  }
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+  gap: 10px;
+}
   
-  .logo {
-    width: 40px;
+.header-button {
+  background-color: #61dafb;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+  font-size: 1rem;
+}
+
+.header-button:hover {
+  background-color: #21a1f1;
+}
+
+  .header-logo img {
     height: 40px;
     margin-right: 10px;
   }
   
+  .header-logo h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
   .header-nav a {
-    margin: 0 10px;
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    margin: 0 15px;
+    font-size: 1rem;
+    transition: color 0.3s;
   }
   
   .header-nav a:hover {
-    text-decoration: underline;
+    color: #007bff;
   }
   
   .header-user {
@@ -34,22 +62,18 @@
     align-items: center;
   }
   
-  .user-name {
-    margin-right: 15px;
-  }
-  
   .btn-login, .btn-logout {
-    padding: 5px 10px;
+    font-size: 1rem;
+    padding: 8px 15px;
+    background: #007bff;
     border: none;
-    background-color: white;
-    color: #4CAF50;
-    font-weight: bold;
-    cursor: pointer;
     border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
   }
   
   .btn-login:hover, .btn-logout:hover {
-    background-color: #45a049;
-    color: white;
+    background: #0056b3;
   }
   
